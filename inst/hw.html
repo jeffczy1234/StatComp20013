@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<meta name="author" content="zhi ya chen" />
+
+<meta name="date" content="2020-12-19" />
+
+<title>hw</title>
+
+<script>// Hide empty <a> tag within highlighted CodeBlock for screen reader accessibility (see https://github.com/jgm/pandoc/issues/6352#issuecomment-626106786) -->
+// v0.0.1
+// Written by JooYoung Seo (jooyoung@psu.edu) and Atsushi Yasumoto on June 1st, 2020.
+
+document.addEventListener('DOMContentLoaded', function() {
+  const codeList = document.getElementsByClassName("sourceCode");
+  for (var i = 0; i < codeList.length; i++) {
+    var linkList = codeList[i].getElementsByTagName('a');
+    for (var j = 0; j < linkList.length; j++) {
+      if (linkList[j].innerHTML === "") {
+        linkList[j].setAttribute('aria-hidden', 'true');
+      }
+    }
+  }
+});
+</script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">hw</h1>
+<h4 class="author">zhi ya chen</h4>
+<h4 class="date">2020-12-19</h4>
+
+
+
+<div id="hw1" class="section level1">
+<h1>hw1</h1>
+<div id="question1" class="section level2">
+<h2>Question1</h2>
+<p>Graph the density histogram of the sample with the Pareto(2, 2) density superimposed for comparison.</p>
+</div>
+<div id="answer" class="section level2">
+<h2>Answer</h2>
+<p>对题目建模可得直方图和密度函数的对比图</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>u11 &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">500</span>)</span>
+<span id="cb1-2"><a href="#cb1-2"></a>x11=<span class="dv">2</span><span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">1</span><span class="op">-</span>u11)<span class="co">##分布函数的反函数</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="kw">hist</span>(x11, <span class="dt">prob =</span> <span class="ot">TRUE</span>, <span class="dt">breaks=</span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="kw">ceiling</span>(<span class="kw">max</span>(x11)),<span class="dv">1</span>),<span class="dt">main =</span> <span class="kw">expression</span>(<span class="kw">f</span>(x)<span class="op">==</span><span class="st"> </span><span class="dv">8</span><span class="op">*</span>x<span class="op">^</span>(<span class="op">-</span><span class="dv">3</span>) ) ) </span>
+<span id="cb1-4"><a href="#cb1-4"></a>y11 &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="kw">ceiling</span>(<span class="kw">max</span>(x11)),<span class="dv">1</span>)</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="kw">lines</span>(y11, <span class="dv">8</span><span class="op">*</span>y11<span class="op">^</span>(<span class="op">-</span><span class="dv">3</span>),<span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+<p>可见基本是直方图是基本吻合密度曲线的。</p>
+</div>
+<div id="question2" class="section level2">
+<h2>Question2</h2>
+<p>Write a functionto generate random variates from fe, and construct the histogram density estimate of a large simulated random sample.</p>
+</div>
+<div id="answer-1" class="section level2">
+<h2>Answer</h2>
+<p>基于题目意思写成的算法，和图像的对比</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>y12=<span class="kw">c</span>()</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5000</span>){</span>
+<span id="cb2-3"><a href="#cb2-3"></a>  x12=<span class="kw">runif</span>(<span class="dv">3</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>)</span>
+<span id="cb2-4"><a href="#cb2-4"></a>  <span class="cf">if</span>( ( <span class="kw">abs</span>(x12[<span class="dv">3</span>])<span class="op">&gt;=</span><span class="kw">abs</span>(x12[<span class="dv">1</span>]) )<span class="op">&amp;&amp;</span>( <span class="kw">abs</span>(x12[<span class="dv">3</span>])<span class="op">&gt;=</span><span class="kw">abs</span>(x12[<span class="dv">2</span>]) ) )   {y12=<span class="kw">c</span>(y12,x12[<span class="dv">2</span>])}</span>
+<span id="cb2-5"><a href="#cb2-5"></a>  <span class="cf">else</span>   {y12=<span class="kw">c</span>(y12,x12[<span class="dv">3</span>])}</span>
+<span id="cb2-6"><a href="#cb2-6"></a>}<span class="co">##生成密度函数的样本</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="kw">hist</span>(y12, <span class="dt">prob =</span> <span class="ot">TRUE</span>, <span class="dt">breaks=</span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>,<span class="fl">0.1</span>),<span class="dt">main =</span> <span class="kw">expression</span>(<span class="kw">f</span>(x)<span class="op">==</span><span class="st"> </span><span class="dv">3</span><span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>x<span class="op">^</span>(<span class="dv">2</span>))<span class="op">/</span><span class="dv">4</span> ) ) </span>
+<span id="cb2-8"><a href="#cb2-8"></a>z12 &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>,<span class="fl">0.1</span>)</span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="kw">lines</span>(z12, <span class="dv">3</span><span class="op">/</span><span class="dv">4</span><span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>z12<span class="op">^</span>(<span class="dv">2</span>)),<span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+<p>可见基本是直方图是基本吻合密度曲线的。</p>
+</div>
+<div id="question3" class="section level2">
+<h2>Question3</h2>
+<p>Prove that the algorithm given in Exercise 3.9 generates variates from the density fe</p>
+</div>
+<div id="answer-2" class="section level2">
+<h2>Answer</h2>
+<p>由于<span class="math inline">\(U_1\)</span>，<span class="math inline">\(U_2\)</span>，<span class="math inline">\(U_3\)</span>是独立同分布的，所以三个的联合密度函数为<span class="math inline">\(\frac{1}{8}\)</span>。</p>
+<p>记<span class="math inline">\(Y\)</span>为例题二算法得到的随机变量。故<span class="math inline">\(P(Y\le s)=\iiint_{A} p(x,y)\, dx\,dy\, dz\)</span> 其中<span class="math inline">\(x\)</span>，<span class="math inline">\(y\)</span>，<span class="math inline">\(z\)</span>分别代表<span class="math inline">\(U_1\)</span>，<span class="math inline">\(U_2\)</span>，<span class="math inline">\(U_3\)</span>，并且<span class="math inline">\(p(x,y)=\frac{1}{8}\)</span>，<span class="math inline">\(A=A_1 \cup A_2\cup A_3\)</span>。</p>
+<p><span class="math inline">\(Y\)</span>第一种取值情况下 <span class="math inline">\(A_1=\lbrace (y\le s)\cup(|y| \le |x|)\cup(|z| \le |x|) \rbrace\)</span></p>
+<p>同理 <span class="math inline">\(Y\)</span>第二种取值情况下为<span class="math inline">\(A_2\)</span>，<span class="math inline">\(A_3\)</span>。 <span class="math inline">\(A_2=\lbrace (x\le s)\cup(|x| \le |y|)\rbrace\)</span> <span class="math inline">\(A_3=\lbrace (x\le s)\cup(|y| \le |x|)\cup(|x| \le |z|) \rbrace\)</span></p>
+<p>由于三个集合互不相容，分别对三个集合求积分可得</p>
+<p><span class="math inline">\(P(Y\le s)=\iiint_{A_1 \cup A_2\cup A_3} \frac{1}{8}\, dx\,dy\, dz\)</span></p>
+<p><span class="math inline">\(P(Y\le s)=(\frac{s+1}{4}-\frac{s^3+1}{12})+(\frac{s+1}{2}-\frac{s^2+1}{4})+(\frac{s^2-1}{4}-\frac{s^3+1}{6})\)</span></p>
+<p>化简得<span class="math inline">\(P(Y\le s)=\frac{3s}{4}-\frac{s^3}{4}\)</span>易验证这个为密度函数<span class="math inline">\(\frac{3(1-x^2)}{4}\)</span>的分布函数。</p>
+<p>证毕。</p>
+</div>
+<div id="question4" class="section level2">
+<h2>Question4</h2>
+<p>Prove that the algorithm given in Exercise 3.9 generates variates from the density fe</p>
+</div>
+<div id="answer-3" class="section level2">
+<h2>Answer</h2>
+<p>对题目计算得到反函数以后，用均匀分布来生成密度函数的样本，并画出对比图</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>u14 &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">1000</span>)</span>
+<span id="cb3-2"><a href="#cb3-2"></a>x14=<span class="dv">2</span><span class="op">/</span>(<span class="dv">1</span><span class="op">-</span>u14)<span class="op">^</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">4</span>)<span class="op">-</span><span class="dv">2</span><span class="co">##分布函数的反函数</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="kw">hist</span>(x14, <span class="dt">prob =</span> <span class="ot">TRUE</span>, <span class="dt">breaks=</span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="kw">ceiling</span>(<span class="kw">max</span>(x14)),<span class="fl">0.1</span>),<span class="dt">main =</span> <span class="kw">expression</span>(<span class="kw">f</span>(x)<span class="op">==</span><span class="st"> </span><span class="dv">64</span><span class="op">*</span>(<span class="dv">2</span><span class="op">+</span>x)<span class="op">^</span>(<span class="op">-</span><span class="dv">5</span>) ) ) </span>
+<span id="cb3-4"><a href="#cb3-4"></a>y14 &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="kw">ceiling</span>(<span class="kw">max</span>(x11)),<span class="fl">0.1</span>)</span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="kw">lines</span>(y14, <span class="dv">64</span><span class="op">*</span>(<span class="dv">2</span><span class="op">+</span>y14)<span class="op">^</span>(<span class="op">-</span><span class="dv">5</span>),<span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+<p>两者基本符合。</p>
+</div>
+</div>
+<div id="hw2" class="section level1">
+<h1>hw2</h1>
+<div id="question1-1" class="section level2">
+<h2>Question1</h2>
+<p>Compute a Monte Carlo estimateand compare your estimate with the exact value of the integral.</p>
+</div>
+<div id="answer-4" class="section level2">
+<h2>Answer</h2>
+<p>用模特卡洛计算积分可得</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>a21=<span class="kw">runif</span>(<span class="dv">10000</span>, <span class="dt">min=</span><span class="dv">0</span>, <span class="dt">max=</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span><span class="op">*</span>(pi))</span>
+<span id="cb4-2"><a href="#cb4-2"></a>b21=<span class="kw">mean</span>(<span class="kw">sin</span>(a21)) <span class="op">*</span><span class="dv">1</span><span class="op">/</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">3</span><span class="op">*</span>(pi))</span></code></pre></div>
+<p>通过积分计算可得</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>g21&lt;-<span class="cf">function</span>(x) {<span class="kw">sin</span>(x)}</span>
+<span id="cb5-2"><a href="#cb5-2"></a>c21=<span class="kw">integrate</span>(g21,<span class="dv">0</span>,<span class="dv">1</span><span class="op">/</span><span class="dv">3</span><span class="op">*</span>(pi))<span class="op">$</span>value</span></code></pre></div>
+<p>两者对比</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">c</span>(<span class="kw">abs</span>(b21<span class="op">-</span>c21),<span class="kw">abs</span>(b21<span class="op">-</span>c21)<span class="op">/</span>b21)</span></code></pre></div>
+<pre><code>## [1] 0.04164651 0.09086111</code></pre>
+<p>可见误差是比较小的</p>
+</div>
+<div id="question2-1" class="section level2">
+<h2>Question2</h2>
+<p>Compute an empirical estimate of the percent reduction in variance using the antithetic variate. Compare the result with the theoretical value from Exercise 5.6.</p>
+</div>
+<div id="answer-5" class="section level2">
+<h2>Answer</h2>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">#对偶法</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a>u221=<span class="kw">runif</span>(<span class="dv">5000</span>)</span>
+<span id="cb8-3"><a href="#cb8-3"></a>a221=<span class="kw">sum</span>(<span class="kw">exp</span>(u221)<span class="op">+</span><span class="kw">exp</span>(<span class="dv">1</span><span class="op">-</span>u221) )<span class="op">/</span><span class="dv">10000</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="co">##mc法</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a>u222=<span class="kw">runif</span>(<span class="dv">10000</span>)</span>
+<span id="cb8-6"><a href="#cb8-6"></a>a222=<span class="kw">mean</span>(<span class="kw">exp</span>(u222))</span>
+<span id="cb8-7"><a href="#cb8-7"></a><span class="co">##积分计算</span></span>
+<span id="cb8-8"><a href="#cb8-8"></a>g22&lt;-<span class="cf">function</span>(x) {<span class="kw">exp</span>(x)}</span>
+<span id="cb8-9"><a href="#cb8-9"></a>e22=<span class="kw">integrate</span>(g22,<span class="dv">0</span>,<span class="dv">1</span>)<span class="op">$</span>value</span>
+<span id="cb8-10"><a href="#cb8-10"></a><span class="kw">c</span>(a221,a222,e22)</span></code></pre></div>
+<pre><code>## [1] 1.718192 1.717784 1.718282</code></pre>
+<p>计算方差</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>b221=<span class="kw">var</span>( (<span class="kw">exp</span>(u221)<span class="op">+</span><span class="kw">exp</span>(<span class="dv">1</span><span class="op">-</span>u221))<span class="op">/</span><span class="dv">2</span> )</span>
+<span id="cb10-2"><a href="#cb10-2"></a>b222=<span class="kw">var</span>(<span class="kw">exp</span>(u222))</span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="kw">c</span>(b222<span class="op">-</span>b221,b221<span class="op">/</span>b222)</span></code></pre></div>
+<pre><code>## [1] 0.23661646 0.01600398</code></pre>
+<p>可见对偶法的方差比mc小了特别多</p>
+</div>
+<div id="question3-1" class="section level2">
+<h2>Question3</h2>
+<p>ﬁnd the value c∗ that minimizes the variance of the estimatorue in equation (5.11). (c∗ will be a function of the variances and the covariance of the estimators.)</p>
+</div>
+<div id="answer-6" class="section level2">
+<h2>Answer</h2>
+<p>化简<span class="math inline">\(Var( c\theta_1+(1-c)\theta_2)=Var(\theta_2)+2cCov(\theta_1-\theta_2,\theta_2)+c^2Var(\theta_1-\theta_2)\)</span></p>
+<p>对<span class="math inline">\(c\)</span>进行配方，可得到 <span class="math inline">\(Var(\theta_1-\theta_2)(c+\frac{Cov(\theta_1-\theta_2,\theta_2)}{Var(\theta_1-\theta_2)})^2+ Var(\theta_2)-(\frac{Cov(\theta_1-\theta_2,\theta_2)}{Var(\theta_1-\theta_2)})^2\)</span></p>
+<p>故可得，当<span class="math inline">\(c=-\frac{Cov(\theta_1-\theta_2,\theta_2)}{Var(\theta_1-\theta_2)}\)</span>时，方差<span class="math inline">\(Var( c\theta_1+(1-c)\theta_2)\)</span>达到最小值。</p>
+<p>#hw4</p>
+</div>
+<div id="question1-2" class="section level2">
+<h2>Question1</h2>
+<p>Estimate the power of the skewness test of normality against symmetric Beta(α, α) distributions and comment on the results. Are the results different for heavy-tailed symmetric alternatives ?</p>
+<p>## Answer</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co">##定义拒绝域的生成函数b1</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a>f411&lt;-<span class="cf">function</span>(m){</span>
+<span id="cb12-3"><a href="#cb12-3"></a>mean411=<span class="kw">mean</span>(m)</span>
+<span id="cb12-4"><a href="#cb12-4"></a>a411=<span class="kw">mean</span>( (m<span class="op">-</span>mean411)<span class="op">^</span><span class="dv">3</span> )</span>
+<span id="cb12-5"><a href="#cb12-5"></a>a412=<span class="kw">mean</span>( (m<span class="op">-</span>mean411)<span class="op">^</span><span class="dv">2</span> )</span>
+<span id="cb12-6"><a href="#cb12-6"></a><span class="kw">return</span>( a411<span class="op">/</span>a412<span class="op">^</span>(<span class="fl">1.5</span>) )</span>
+<span id="cb12-7"><a href="#cb12-7"></a>}</span>
+<span id="cb12-8"><a href="#cb12-8"></a><span class="co">##五个不同的取样次数</span></span>
+<span id="cb12-9"><a href="#cb12-9"></a>n411=<span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">200</span>,<span class="dv">500</span>,<span class="dv">1000</span>,<span class="dv">2000</span>)</span>
+<span id="cb12-10"><a href="#cb12-10"></a>cv411 &lt;-<span class="st"> </span><span class="kw">qnorm</span>(.<span class="dv">975</span>, <span class="dv">0</span>, <span class="kw">sqrt</span>(<span class="dv">6</span><span class="op">*</span>(n411<span class="dv">-2</span>) <span class="op">/</span><span class="st"> </span>((n411<span class="op">+</span><span class="dv">1</span>)<span class="op">*</span>(n411<span class="op">+</span><span class="dv">3</span>))))</span>
+<span id="cb12-11"><a href="#cb12-11"></a>f412&lt;-<span class="cf">function</span>(beta){</span>
+<span id="cb12-12"><a href="#cb12-12"></a>k411=<span class="kw">numeric</span>(<span class="kw">length</span>(n411))</span>
+<span id="cb12-13"><a href="#cb12-13"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(n411)){</span>
+<span id="cb12-14"><a href="#cb12-14"></a>  k412=<span class="kw">numeric</span>(<span class="dv">10000</span>)</span>
+<span id="cb12-15"><a href="#cb12-15"></a>  <span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10000</span>){</span>
+<span id="cb12-16"><a href="#cb12-16"></a>    b411=<span class="kw">rbeta</span>(n411[i],beta,beta)</span>
+<span id="cb12-17"><a href="#cb12-17"></a>    k412[j]=<span class="kw">as.integer</span>( <span class="kw">abs</span>(<span class="kw">f411</span>(b411)) <span class="op">&gt;=</span><span class="st"> </span>cv411[i] )</span>
+<span id="cb12-18"><a href="#cb12-18"></a>  }</span>
+<span id="cb12-19"><a href="#cb12-19"></a>  k411[i]=<span class="kw">mean</span>(k412)</span>
+<span id="cb12-20"><a href="#cb12-20"></a>}</span>
+<span id="cb12-21"><a href="#cb12-21"></a><span class="kw">return</span>(k411)</span>
+<span id="cb12-22"><a href="#cb12-22"></a>}</span>
+<span id="cb12-23"><a href="#cb12-23"></a><span class="co">###选择了五个不同参数</span></span>
+<span id="cb12-24"><a href="#cb12-24"></a><span class="kw">cbind</span>(<span class="kw">f412</span>(<span class="dv">1</span>),<span class="kw">f412</span>(<span class="dv">5</span>),<span class="kw">f412</span>(<span class="dv">10</span>),<span class="kw">f412</span>(<span class="dv">100</span>),<span class="kw">f412</span>(<span class="dv">1000</span>))</span></code></pre></div>
+<pre><code>##        [,1]   [,2]   [,3]   [,4]   [,5]
+## [1,] 0.0017 0.0088 0.0217 0.0485 0.0486
+## [2,] 0.0013 0.0058 0.0164 0.0462 0.0536
+## [3,] 0.0012 0.0060 0.0188 0.0468 0.0539
+## [4,] 0.0017 0.0058 0.0175 0.0487 0.0472
+## [5,] 0.0005 0.0070 0.0171 0.0452 0.0490</code></pre>
+<p>选择了五个不同的参数<span class="math inline">\(1,5,10,100,1000\)</span>和五个不同取样数量<span class="math inline">\(100,200,500,1000,2000\)</span>。根据b1的计算公式和对称beta分布的性质可知,随着beta的参数增大，随机数离0.5的偏离越小，这也是让<span class="math inline">\(\beta_1\)</span>更接近0，所以p值会随着参数的大幅度增大而变大，进而在0.05水平下接受原假设。</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="co">##讲随机数换成t分布</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a>f413&lt;-<span class="cf">function</span>(beta){</span>
+<span id="cb14-3"><a href="#cb14-3"></a>  k411=<span class="kw">numeric</span>(<span class="kw">length</span>(n411))</span>
+<span id="cb14-4"><a href="#cb14-4"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(n411)){</span>
+<span id="cb14-5"><a href="#cb14-5"></a>    k412=<span class="kw">numeric</span>(<span class="dv">10000</span>)</span>
+<span id="cb14-6"><a href="#cb14-6"></a>    <span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10000</span>){</span>
+<span id="cb14-7"><a href="#cb14-7"></a>      b411=<span class="kw">rt</span>(n411[i],beta)</span>
+<span id="cb14-8"><a href="#cb14-8"></a>      k412[j]=<span class="kw">as.integer</span>( <span class="kw">abs</span>(<span class="kw">f411</span>(b411)) <span class="op">&gt;=</span><span class="st"> </span>cv411[i] )</span>
+<span id="cb14-9"><a href="#cb14-9"></a>    }</span>
+<span id="cb14-10"><a href="#cb14-10"></a>    k411[i]=<span class="kw">mean</span>(k412)</span>
+<span id="cb14-11"><a href="#cb14-11"></a>  }</span>
+<span id="cb14-12"><a href="#cb14-12"></a>  <span class="kw">return</span>(k411)</span>
+<span id="cb14-13"><a href="#cb14-13"></a>}</span>
+<span id="cb14-14"><a href="#cb14-14"></a><span class="co">###选择了五个不同参数</span></span>
+<span id="cb14-15"><a href="#cb14-15"></a><span class="kw">cbind</span>(<span class="kw">f413</span>(<span class="dv">1</span>),<span class="kw">f413</span>(<span class="dv">5</span>),<span class="kw">f413</span>(<span class="dv">10</span>),<span class="kw">f413</span>(<span class="dv">100</span>),<span class="kw">f413</span>(<span class="dv">1000</span>))</span></code></pre></div>
+<pre><code>##        [,1]   [,2]   [,3]   [,4]   [,5]
+## [1,] 0.9522 0.4075 0.1910 0.0602 0.0498
+## [2,] 0.9762 0.4804 0.2237 0.0621 0.0535
+## [3,] 0.9912 0.5658 0.2596 0.0628 0.0530
+## [4,] 0.9949 0.6236 0.2784 0.0628 0.0500
+## [5,] 0.9976 0.6656 0.3031 0.0618 0.0531</code></pre>
+<p>由结果可知，对t分布当参数较小的时候，p值是特别大的，随着参数自由度<span class="math inline">\(df\)</span>逐渐变大，t分布趋于正态，p值开始下降，在<span class="math inline">\(df=1000\)</span>的时候会生成在0.05水平下拒绝原假设的随机数。</p>
+</div>
+<div id="question2-2" class="section level2">
+<h2>Question2</h2>
+<p>Refer to Example 6.16. Repeat the simulation, but also compute the F test of equal variance, at significance level ˆα = 0.055. Compare the power of the Count Five test and F test for small, medium, and large sample sizes. (Recall that the F test is not applicable for non-normal distributions.)</p>
+</div>
+<div id="answer-7" class="section level2">
+<h2>Answer</h2>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co">##定义Count Five函数</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a>f421=<span class="cf">function</span>(x421, y421) {</span>
+<span id="cb16-3"><a href="#cb16-3"></a>  X421=x421 <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(x421)</span>
+<span id="cb16-4"><a href="#cb16-4"></a>  Y421=y421 <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(y421)</span>
+<span id="cb16-5"><a href="#cb16-5"></a>  a421&lt;-<span class="st"> </span><span class="kw">sum</span>(X421 <span class="op">&gt;</span><span class="st"> </span><span class="kw">max</span>(Y421)) <span class="op">+</span><span class="st"> </span><span class="kw">sum</span>(X421 <span class="op">&lt;</span><span class="st"> </span><span class="kw">min</span>(Y421))</span>
+<span id="cb16-6"><a href="#cb16-6"></a>  b421&lt;-<span class="st"> </span><span class="kw">sum</span>(Y421 <span class="op">&gt;</span><span class="st"> </span><span class="kw">max</span>(X421)) <span class="op">+</span><span class="st"> </span><span class="kw">sum</span>(Y421 <span class="op">&lt;</span><span class="st"> </span><span class="kw">min</span>(X421))</span>
+<span id="cb16-7"><a href="#cb16-7"></a>  <span class="kw">return</span>(<span class="kw">as.integer</span>(<span class="kw">max</span>(<span class="kw">c</span>(a421, b421)) <span class="op">&gt;</span><span class="st"> </span><span class="dv">5</span>))</span>
+<span id="cb16-8"><a href="#cb16-8"></a>}</span>
+<span id="cb16-9"><a href="#cb16-9"></a>f422=<span class="cf">function</span>(x422){</span>
+<span id="cb16-10"><a href="#cb16-10"></a>  power1&lt;-<span class="kw">replicate</span>(<span class="dv">1000</span>, <span class="dt">expr=</span>{</span>
+<span id="cb16-11"><a href="#cb16-11"></a>    x4 &lt;-<span class="st"> </span><span class="kw">rnorm</span>(x422, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb16-12"><a href="#cb16-12"></a>    y4 &lt;-<span class="st"> </span><span class="kw">rnorm</span>(x422, <span class="dv">0</span>, <span class="fl">1.5</span>)</span>
+<span id="cb16-13"><a href="#cb16-13"></a>    a411=<span class="kw">var.test</span>(x4, y4, <span class="dt">ratio =</span> <span class="dv">1</span>,</span>
+<span id="cb16-14"><a href="#cb16-14"></a>                  <span class="dt">alternative =</span> <span class="kw">c</span>(<span class="st">&quot;two.sided&quot;</span>, <span class="st">&quot;less&quot;</span>, <span class="st">&quot;greater&quot;</span>),</span>
+<span id="cb16-15"><a href="#cb16-15"></a>                  <span class="dt">conf.level =</span> <span class="fl">0.95</span>)<span class="op">$</span>p.value</span>
+<span id="cb16-16"><a href="#cb16-16"></a>    <span class="kw">c</span>(a411,<span class="kw">f421</span>(x4, y4))</span>
+<span id="cb16-17"><a href="#cb16-17"></a>  })</span>
+<span id="cb16-18"><a href="#cb16-18"></a>  <span class="kw">c</span>(<span class="kw">mean</span>(power1[<span class="dv">1</span>,]),<span class="kw">mean</span>(power1[<span class="dv">2</span>,]))</span>
+<span id="cb16-19"><a href="#cb16-19"></a>}</span>
+<span id="cb16-20"><a href="#cb16-20"></a><span class="co">##第一行是F检验的，第二行是five函数</span></span>
+<span id="cb16-21"><a href="#cb16-21"></a><span class="kw">cbind</span>(<span class="kw">f422</span>(<span class="dv">6</span>),<span class="kw">f422</span>(<span class="dv">8</span>),<span class="kw">f422</span>(<span class="dv">10</span>),<span class="kw">f422</span>(<span class="dv">20</span>),<span class="kw">f422</span>(<span class="dv">40</span>),<span class="kw">f422</span>(<span class="dv">60</span>),<span class="kw">f422</span>(<span class="dv">80</span>),<span class="kw">f422</span>(<span class="dv">100</span>),<span class="kw">f422</span>(<span class="dv">120</span>),<span class="kw">f422</span>(<span class="dv">140</span>))</span></code></pre></div>
+<pre><code>##           [,1]      [,2]      [,3]     [,4]       [,5]       [,6]       [,7]
+## [1,] 0.3961704 0.3356843 0.3389309 0.195788 0.07700227 0.02810218 0.01041868
+## [2,] 0.0120000 0.0630000 0.1070000 0.327000 0.56000000 0.71600000 0.78400000
+##             [,8]        [,9]       [,10]
+## [1,] 0.006352869 0.002420483 0.001069522
+## [2,] 0.839000000 0.887000000 0.914000000</code></pre>
+<p>由结果可见基本上F检验是随着随机数数量增大而p值减小，five函数则相反。</p>
+<p>在随机数数量很小的时候five函数可以基本准确拒绝原假设，F检验则会接受原假设。在参数在50左右的时候，F检验还是接受原假设，FIVE函数也变成接受原假设了。在随机数数量足够大的时候，F检验是准确的，FIVE函数一直是错误的。</p>
+</div>
+<div id="question3-2" class="section level2">
+<h2>Question3</h2>
+<p>Repeat Examples 6.8 and 6.10 for Mardia’s multivariate skewness test.</p>
+</div>
+<div id="answer-8" class="section level2">
+<h2>Answer</h2>
+<p>对于一维情形的正态分布极大似然估计，可得<span class="math inline">\(\hat{\mu}=\overline{X},\hat{\sigma}^2=\frac{1}{n}\sum_i(X_i-\hat{\mu})^2\)</span>则可依据这个化简Mardia检验</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="co">##先重复6.8</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a><span class="co">##定义好d的求值函数</span></span>
+<span id="cb18-3"><a href="#cb18-3"></a>f431&lt;-<span class="cf">function</span>(m){</span>
+<span id="cb18-4"><a href="#cb18-4"></a>  mean431=<span class="kw">mean</span>(m)</span>
+<span id="cb18-5"><a href="#cb18-5"></a>  sigma431=<span class="kw">sum</span>( (m<span class="op">-</span>mean431)<span class="op">^</span><span class="dv">2</span> )<span class="op">/</span><span class="kw">length</span>(m)</span>
+<span id="cb18-6"><a href="#cb18-6"></a>  a411=<span class="kw">numeric</span>(<span class="dv">0</span>)</span>
+<span id="cb18-7"><a href="#cb18-7"></a>  a431=<span class="kw">t</span>(<span class="kw">t</span>( (m<span class="op">-</span>mean431)<span class="op">^</span><span class="dv">3</span> ))<span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>( (m<span class="op">-</span>mean431)<span class="op">^</span><span class="dv">3</span> )</span>
+<span id="cb18-8"><a href="#cb18-8"></a>  a411=<span class="kw">sum</span>(a431)<span class="op">/</span>(<span class="kw">length</span>(m)<span class="op">^</span><span class="dv">2</span><span class="op">*</span>sigma431<span class="op">^</span><span class="dv">3</span>)</span>
+<span id="cb18-9"><a href="#cb18-9"></a>  <span class="kw">return</span>( a411 )</span>
+<span id="cb18-10"><a href="#cb18-10"></a>}</span>
+<span id="cb18-11"><a href="#cb18-11"></a><span class="co">##给定取样次数</span></span>
+<span id="cb18-12"><a href="#cb18-12"></a>n431=<span class="kw">c</span>(<span class="dv">50</span>,<span class="dv">100</span>,<span class="dv">200</span>,<span class="dv">400</span>,<span class="dv">700</span>,<span class="dv">1000</span>)</span>
+<span id="cb18-13"><a href="#cb18-13"></a>b431=(<span class="dv">1</span><span class="op">/</span>n431)<span class="op">*</span><span class="dv">6</span><span class="op">*</span><span class="kw">qchisq</span>(<span class="fl">0.95</span>,<span class="dv">1</span>)</span>
+<span id="cb18-14"><a href="#cb18-14"></a>f432=<span class="cf">function</span>(beta){</span>
+<span id="cb18-15"><a href="#cb18-15"></a>  k431=<span class="kw">numeric</span>(<span class="kw">length</span>(n431))</span>
+<span id="cb18-16"><a href="#cb18-16"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(n431)){</span>
+<span id="cb18-17"><a href="#cb18-17"></a>    k432=<span class="kw">numeric</span>(<span class="dv">1000</span>)</span>
+<span id="cb18-18"><a href="#cb18-18"></a>    <span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">1000</span>){</span>
+<span id="cb18-19"><a href="#cb18-19"></a>      c431=<span class="kw">rbeta</span>(n431[i],beta,beta)</span>
+<span id="cb18-20"><a href="#cb18-20"></a>      k432[j]=<span class="kw">as.integer</span>( <span class="kw">abs</span>(<span class="kw">f431</span>(c431)) <span class="op">&gt;=</span><span class="st"> </span>b431[i] )</span>
+<span id="cb18-21"><a href="#cb18-21"></a>    }</span>
+<span id="cb18-22"><a href="#cb18-22"></a>    k431[i]=<span class="kw">mean</span>(k432)</span>
+<span id="cb18-23"><a href="#cb18-23"></a>  }</span>
+<span id="cb18-24"><a href="#cb18-24"></a>  <span class="kw">return</span>(k431)</span>
+<span id="cb18-25"><a href="#cb18-25"></a>}</span>
+<span id="cb18-26"><a href="#cb18-26"></a></span>
+<span id="cb18-27"><a href="#cb18-27"></a><span class="kw">cbind</span>(<span class="kw">f432</span>(<span class="dv">1</span>),<span class="kw">f432</span>(<span class="dv">5</span>),<span class="kw">f432</span>(<span class="dv">10</span>),<span class="kw">f432</span>(<span class="dv">100</span>),<span class="kw">f432</span>(<span class="dv">1000</span>))</span></code></pre></div>
+<pre><code>##       [,1]  [,2]  [,3]  [,4]  [,5]
+## [1,] 0.005 0.007 0.019 0.037 0.031
+## [2,] 0.000 0.004 0.020 0.040 0.043
+## [3,] 0.001 0.008 0.016 0.040 0.064
+## [4,] 0.001 0.013 0.018 0.042 0.041
+## [5,] 0.000 0.004 0.028 0.037 0.051
+## [6,] 0.001 0.007 0.020 0.047 0.048</code></pre>
+<p>由结果可见基本都是拒绝零假设，且随着参数变大，p值上升至0.05附近。</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="co">##复现6.10</span></span>
+<span id="cb20-2"><a href="#cb20-2"></a>n433=<span class="dv">30</span></span>
+<span id="cb20-3"><a href="#cb20-3"></a>m433=<span class="dv">2500</span></span>
+<span id="cb20-4"><a href="#cb20-4"></a>epsilon433=<span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.05</span>)</span>
+<span id="cb20-5"><a href="#cb20-5"></a>k433=<span class="kw">numeric</span>(<span class="kw">length</span>(epsilon433))</span>
+<span id="cb20-6"><a href="#cb20-6"></a><span class="co">##使用b31为定值参数</span></span>
+<span id="cb20-7"><a href="#cb20-7"></a><span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(epsilon433)) { </span>
+<span id="cb20-8"><a href="#cb20-8"></a>  d433=epsilon433[j]</span>
+<span id="cb20-9"><a href="#cb20-9"></a>  a433&lt;-<span class="kw">numeric</span>(m433)</span>
+<span id="cb20-10"><a href="#cb20-10"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>m433) { </span>
+<span id="cb20-11"><a href="#cb20-11"></a>    sigma4=<span class="kw">sample</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">10</span>), <span class="dt">replace =</span> <span class="ot">TRUE</span>,<span class="dt">size =</span> n433, <span class="dt">prob =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">-</span>d433, d433))</span>
+<span id="cb20-12"><a href="#cb20-12"></a>    x=<span class="kw">rnorm</span>(n433, <span class="dv">0</span>, sigma4)</span>
+<span id="cb20-13"><a href="#cb20-13"></a>    a433[i]=<span class="kw">as.integer</span>( <span class="kw">abs</span>( <span class="kw">f431</span>(x) ) <span class="op">&gt;=</span><span class="st"> </span>(<span class="dv">6</span><span class="op">*</span><span class="kw">qchisq</span>(<span class="fl">0.95</span>,<span class="dv">1</span>)<span class="op">/</span>n433) )</span>
+<span id="cb20-14"><a href="#cb20-14"></a>  }</span>
+<span id="cb20-15"><a href="#cb20-15"></a>  k433[j]=<span class="kw">mean</span>(a433)</span>
+<span id="cb20-16"><a href="#cb20-16"></a>}</span>
+<span id="cb20-17"><a href="#cb20-17"></a><span class="co">#plot power vs epsilon</span></span>
+<span id="cb20-18"><a href="#cb20-18"></a><span class="kw">plot</span>(epsilon433, k433, <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>,</span>
+<span id="cb20-19"><a href="#cb20-19"></a>     <span class="dt">xlab =</span> <span class="kw">bquote</span>(epsilon433), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb20-20"><a href="#cb20-20"></a><span class="kw">abline</span>(<span class="dt">h =</span> <span class="fl">0.05</span>, <span class="dt">lty =</span> <span class="dv">3</span>)</span></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --> 可见随着<span class="math inline">\(\epsilon\)</span>靠近0和1，随着函数越接近正态分布的函数，p值趋于0.05</p>
+</div>
+<div id="question4-1" class="section level2">
+<h2>Question4</h2>
+<p>If we obtain the powers for two methods under a particular simulation setting with 10,000 experiments: say, 0.651 for one method and 0.676 for another method. Can we say the powers are different at 0.05 level? 1.What is the corresponding hypothesis test problem? 2.What test should we use? Z-test, two-sample t-test, paired-t test or McNemar test? 3.What information is needed to test your hypothesis?</p>
+<p>## Answer</p>
+<p>1.对立假设如下 <span class="math inline">\(H_0\)</span>:在重复次数为10000次，随机样本相同的情况下，方法一的P值和方法二的P值在0.05水平下是相等的 <span class="math inline">\(H_1\)</span>:在重复次数为10000次，随机样本相同的情况下，方法一的P值和方法二的P值在0.05水平下是不相等的</p>
+<p>2.Z检验要求方差已知。两个t检验都要求正态分布或者渐近正态的性质。但是因为方法的不同不能保证，选择McNemar test。</p>
+<p>3.需要生成同一批10000个样本，每个样本计算一次是拒绝(1)还是接受原假设(0)，然后用<span class="math inline">\(\frac{(b-c)^2}{b+c}\)</span>来对比0.05水平下的卡方分布。</p>
+<p>#hw6</p>
+</div>
+<div id="question1-3" class="section level2">
+<h2>Question1</h2>
+<p>Implement a permutation test for equal variance based on the maximum number of extreme points that applies when sample sizes are not necessarily equal.</p>
+</div>
+<div id="answer-9" class="section level2">
+<h2>Answer</h2>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="co">##两个不同的样本量</span></span>
+<span id="cb21-2"><a href="#cb21-2"></a>x61=<span class="kw">rnorm</span>(<span class="dv">20</span>, <span class="dv">1</span>, <span class="dt">sd =</span> <span class="dv">2</span>)</span>
+<span id="cb21-3"><a href="#cb21-3"></a>y61=<span class="kw">rnorm</span>(<span class="dv">15</span>, <span class="dv">1</span>, <span class="dt">sd =</span> <span class="dv">2</span>)</span>
+<span id="cb21-4"><a href="#cb21-4"></a><span class="co">##使用count5比较</span></span>
+<span id="cb21-5"><a href="#cb21-5"></a>count5test6 &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) {</span>
+<span id="cb21-6"><a href="#cb21-6"></a>  X &lt;-<span class="st"> </span>x <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(x)</span>
+<span id="cb21-7"><a href="#cb21-7"></a>  Y &lt;-<span class="st"> </span>y <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(y)</span>
+<span id="cb21-8"><a href="#cb21-8"></a>  outx &lt;-<span class="st"> </span><span class="kw">sum</span>(X <span class="op">&gt;</span><span class="st"> </span><span class="kw">max</span>(Y)) <span class="op">+</span><span class="st"> </span><span class="kw">sum</span>(X <span class="op">&lt;</span><span class="st"> </span><span class="kw">min</span>(Y))</span>
+<span id="cb21-9"><a href="#cb21-9"></a>  outy &lt;-<span class="st"> </span><span class="kw">sum</span>(Y <span class="op">&gt;</span><span class="st"> </span><span class="kw">max</span>(X)) <span class="op">+</span><span class="st"> </span><span class="kw">sum</span>(Y <span class="op">&lt;</span><span class="st"> </span><span class="kw">min</span>(X))</span>
+<span id="cb21-10"><a href="#cb21-10"></a>  <span class="kw">return</span>(<span class="kw">as.integer</span>(<span class="kw">max</span>(<span class="kw">c</span>(outx, outy)) <span class="op">&gt;</span><span class="st"> </span><span class="dv">5</span>))</span>
+<span id="cb21-11"><a href="#cb21-11"></a>}</span>
+<span id="cb21-12"><a href="#cb21-12"></a>R61 =<span class="st"> </span><span class="dv">999</span>;</span>
+<span id="cb21-13"><a href="#cb21-13"></a>z61 =<span class="st"> </span><span class="kw">c</span>(x61, y61)</span>
+<span id="cb21-14"><a href="#cb21-14"></a>K61 =<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">35</span></span>
+<span id="cb21-15"><a href="#cb21-15"></a><span class="kw">set.seed</span>(<span class="dv">11111</span>)</span>
+<span id="cb21-16"><a href="#cb21-16"></a>rep61 =<span class="st"> </span><span class="kw">numeric</span>(R61)</span>
+<span id="cb21-17"><a href="#cb21-17"></a>t610 =<span class="st"> </span><span class="kw">count5test6</span>(x61, y61)</span>
+<span id="cb21-18"><a href="#cb21-18"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>R61) {</span>
+<span id="cb21-19"><a href="#cb21-19"></a>  k61 =<span class="kw">sample</span>(K61, <span class="dt">size =</span> <span class="kw">length</span>(x61), <span class="dt">replace =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb21-20"><a href="#cb21-20"></a>  x61 =<span class="st"> </span>z61[k61]</span>
+<span id="cb21-21"><a href="#cb21-21"></a>  y61 =<span class="st"> </span>z61[<span class="op">-</span>k61]</span>
+<span id="cb21-22"><a href="#cb21-22"></a>  rep61[i] =<span class="st"> </span><span class="kw">count5test6</span>(x61, y61)</span>
+<span id="cb21-23"><a href="#cb21-23"></a>}</span>
+<span id="cb21-24"><a href="#cb21-24"></a>p61=<span class="kw">mean</span>(<span class="kw">c</span>(t610,rep61))</span>
+<span id="cb21-25"><a href="#cb21-25"></a><span class="kw">round</span>(<span class="kw">c</span>(p61),<span class="dv">3</span>)</span></code></pre></div>
+<pre><code>## [1] 0.064</code></pre>
+<p>故在置信水平0.05的情况下认为<span class="math inline">\(x_1,y_1\)</span>的分布是相同的，尽管两者的样本量不一样。</p>
+</div>
+<div id="question2-3" class="section level2">
+<h2>Question2</h2>
+<p>Design experiments for evaluating the performance of the NN, energy, and ball methods in various situations. 1.Unequal variances and equal expectations 2.Unequal variances and unequal expectations 3.Non-normal distributions: t distribution with 1 df (heavy-tailed distribution), bimodel distribution (mixture of two normal distributions) 4.Unbalanced samples (say, 1 case versus 10 controls)</p>
+</div>
+<div id="answer-10" class="section level2">
+<h2>Answer</h2>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="kw">library</span>(<span class="st">&quot;Ball&quot;</span>)</span></code></pre></div>
+<pre><code>## Warning: 程辑包&#39;Ball&#39;是用R版本4.0.3 来建造的</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="kw">library</span>(<span class="st">&quot;energy&quot;</span>)</span></code></pre></div>
+<pre><code>## Warning: 程辑包&#39;energy&#39;是用R版本4.0.3 来建造的</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="kw">library</span>(boot)</span></code></pre></div>
+<pre><code>## Warning: 程辑包&#39;boot&#39;是用R版本4.0.3 来建造的</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="kw">library</span>(RANN)</span></code></pre></div>
+<pre><code>## Warning: 程辑包&#39;RANN&#39;是用R版本4.0.3 来建造的</code></pre>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>Tn62 =<span class="st"> </span><span class="cf">function</span>(z, ix, sizes,k) {</span>
+<span id="cb31-2"><a href="#cb31-2"></a>  n1 =<span class="st"> </span>sizes[<span class="dv">1</span>] </span>
+<span id="cb31-3"><a href="#cb31-3"></a>  n2 =<span class="st"> </span>sizes[<span class="dv">2</span>]</span>
+<span id="cb31-4"><a href="#cb31-4"></a>  n =<span class="st"> </span>n1 <span class="op">+</span><span class="st"> </span>n2</span>
+<span id="cb31-5"><a href="#cb31-5"></a>  <span class="cf">if</span>(<span class="kw">is.vector</span>(z)) {z =<span class="st"> </span><span class="kw">data.frame</span>(z,<span class="dv">0</span>)}</span>
+<span id="cb31-6"><a href="#cb31-6"></a>  z =<span class="st"> </span>z[ix, ]</span>
+<span id="cb31-7"><a href="#cb31-7"></a>  NN =<span class="st"> </span><span class="kw">nn2</span>(<span class="dt">data=</span>z, <span class="dt">k=</span>k<span class="op">+</span><span class="dv">1</span>) </span>
+<span id="cb31-8"><a href="#cb31-8"></a>  block1 =<span class="st"> </span>NN<span class="op">$</span>nn.idx[<span class="dv">1</span><span class="op">:</span>n1,<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb31-9"><a href="#cb31-9"></a>  block2 =<span class="st"> </span>NN<span class="op">$</span>nn.idx[(n1<span class="op">+</span><span class="dv">1</span>)<span class="op">:</span>n,<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb31-10"><a href="#cb31-10"></a>  i1 =<span class="st"> </span><span class="kw">sum</span>(block1 <span class="op">&lt;</span><span class="st"> </span>n1 <span class="op">+</span><span class="st"> </span><span class="fl">.5</span>)</span>
+<span id="cb31-11"><a href="#cb31-11"></a>  i2 =<span class="st"> </span><span class="kw">sum</span>(block2 <span class="op">&gt;</span><span class="st"> </span>n1<span class="fl">+.5</span>)</span>
+<span id="cb31-12"><a href="#cb31-12"></a>  <span class="kw">return</span>((i1 <span class="op">+</span><span class="st"> </span>i2) <span class="op">/</span><span class="st"> </span>(k <span class="op">*</span><span class="st"> </span>n))</span>
+<span id="cb31-13"><a href="#cb31-13"></a>}</span>
+<span id="cb31-14"><a href="#cb31-14"></a>eqdist.nn6 &lt;-<span class="st"> </span><span class="cf">function</span>(z,sizes,k){</span>
+<span id="cb31-15"><a href="#cb31-15"></a>  boot.obj &lt;-<span class="st"> </span><span class="kw">boot</span>(<span class="dt">data=</span>z,<span class="dt">statistic=</span>Tn62,<span class="dt">R=</span><span class="dv">999</span>,</span>
+<span id="cb31-16"><a href="#cb31-16"></a>                   <span class="dt">sim =</span> <span class="st">&quot;permutation&quot;</span>, <span class="dt">sizes =</span> sizes,<span class="dt">k=</span>k)</span>
+<span id="cb31-17"><a href="#cb31-17"></a>  ts =<span class="st"> </span><span class="kw">c</span>(boot.obj<span class="op">$</span>t0,boot.obj<span class="op">$</span>t)</span>
+<span id="cb31-18"><a href="#cb31-18"></a>  p.value =<span class="kw">mean</span>(ts<span class="op">&gt;=</span>ts[<span class="dv">1</span>])</span>
+<span id="cb31-19"><a href="#cb31-19"></a>  <span class="kw">list</span>(<span class="dt">statistic=</span>ts[<span class="dv">1</span>],<span class="dt">p.value=</span>p.value)</span>
+<span id="cb31-20"><a href="#cb31-20"></a>}</span>
+<span id="cb31-21"><a href="#cb31-21"></a><span class="co">##下面分别对不同情况计算p值</span></span>
+<span id="cb31-22"><a href="#cb31-22"></a><span class="co">##情况一</span></span>
+<span id="cb31-23"><a href="#cb31-23"></a>m6 =<span class="st"> </span><span class="dv">300</span><span class="co">##迭代次数</span></span>
+<span id="cb31-24"><a href="#cb31-24"></a><span class="kw">set.seed</span>(<span class="dv">10001</span>)</span>
+<span id="cb31-25"><a href="#cb31-25"></a>n61 =<span class="st"> </span>n62 =<span class="st"> </span><span class="dv">50</span><span class="co">##样本数</span></span>
+<span id="cb31-26"><a href="#cb31-26"></a>k6=<span class="dv">3</span>; n6 &lt;-<span class="st"> </span>n61<span class="op">+</span>n62; N6 =<span class="st"> </span><span class="kw">c</span>(n61,n62)</span>
+<span id="cb31-27"><a href="#cb31-27"></a>p6=<span class="dv">1</span><span class="co">#矩阵列数</span></span>
+<span id="cb31-28"><a href="#cb31-28"></a><span class="co">##方差和均值</span></span>
+<span id="cb31-29"><a href="#cb31-29"></a>sd61 =<span class="dv">1</span></span>
+<span id="cb31-30"><a href="#cb31-30"></a>sd62=<span class="dv">2</span></span>
+<span id="cb31-31"><a href="#cb31-31"></a>mu61=mu62=<span class="dv">0</span></span>
+<span id="cb31-32"><a href="#cb31-32"></a>R6=<span class="dv">999</span><span class="co">##随机次数</span></span>
+<span id="cb31-33"><a href="#cb31-33"></a>p.values61 &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="ot">NA</span>,m6,<span class="dv">3</span>)</span>
+<span id="cb31-34"><a href="#cb31-34"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>m6){</span>
+<span id="cb31-35"><a href="#cb31-35"></a>  x6 =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(n61,mu61,sd61),<span class="dt">ncol=</span>p6);</span>
+<span id="cb31-36"><a href="#cb31-36"></a>  y6 =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">rnorm</span>(n62,mu62,sd62));</span>
+<span id="cb31-37"><a href="#cb31-37"></a>  z6 =<span class="st"> </span><span class="kw">rbind</span>(x6,y6)</span>
+<span id="cb31-38"><a href="#cb31-38"></a>  p.values61[i,<span class="dv">1</span>] =<span class="st"> </span><span class="kw">eqdist.nn6</span>(z6,N6,k6)<span class="op">$</span>p.value</span>
+<span id="cb31-39"><a href="#cb31-39"></a>  p.values61[i,<span class="dv">2</span>] =<span class="st"> </span><span class="kw">eqdist.etest</span>(z6,<span class="dt">sizes=</span>N6,<span class="dt">R=</span>R6)<span class="op">$</span>p.value</span>
+<span id="cb31-40"><a href="#cb31-40"></a>  p.values61[i,<span class="dv">3</span>] =<span class="st"> </span><span class="kw">bd.test</span>(<span class="dt">x=</span>x6,<span class="dt">y=</span>y6,<span class="dt">num.permutations=</span><span class="dv">999</span>,<span class="dt">seed=</span>i<span class="op">*</span><span class="dv">12345</span>)<span class="op">$</span>p.value</span>
+<span id="cb31-41"><a href="#cb31-41"></a>}</span>
+<span id="cb31-42"><a href="#cb31-42"></a>alpha61 =<span class="st"> </span><span class="fl">0.05</span>;</span>
+<span id="cb31-43"><a href="#cb31-43"></a>pow61 =<span class="st"> </span><span class="kw">colMeans</span>(p.values61<span class="op">&lt;</span>alpha61)</span>
+<span id="cb31-44"><a href="#cb31-44"></a><span class="kw">round</span>(pow61,<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1] 0.61333 0.83000 0.95667</code></pre>
+<p>从拒绝原假设的比例上来看，在情况一的条件下可见NN法的效率是最差的，bdtest的效果最好</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="co">##情况二</span></span>
+<span id="cb33-2"><a href="#cb33-2"></a>m6 =<span class="st"> </span><span class="dv">300</span><span class="co">##迭代次数</span></span>
+<span id="cb33-3"><a href="#cb33-3"></a>R6=<span class="dv">999</span><span class="co">##随机次数</span></span>
+<span id="cb33-4"><a href="#cb33-4"></a><span class="kw">set.seed</span>(<span class="dv">10002</span>)</span>
+<span id="cb33-5"><a href="#cb33-5"></a>n61 =<span class="st"> </span>n62 =<span class="st"> </span><span class="dv">50</span><span class="co">##样本数</span></span>
+<span id="cb33-6"><a href="#cb33-6"></a>n6 =<span class="st"> </span>n61<span class="op">+</span>n62; N6 =<span class="st"> </span><span class="kw">c</span>(n61,n62)</span>
+<span id="cb33-7"><a href="#cb33-7"></a><span class="co">##不同的方差和均值</span></span>
+<span id="cb33-8"><a href="#cb33-8"></a>sd61 =<span class="dv">1</span>;sd62=<span class="fl">1.5</span>;mu61=<span class="dv">1</span>;mu62=<span class="dv">0</span></span>
+<span id="cb33-9"><a href="#cb33-9"></a>p.values62 &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="ot">NA</span>,m6,<span class="dv">3</span>)</span>
+<span id="cb33-10"><a href="#cb33-10"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>m6){</span>
+<span id="cb33-11"><a href="#cb33-11"></a>  x6 =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(n61,mu61,sd61),<span class="dt">ncol=</span>p6)</span>
+<span id="cb33-12"><a href="#cb33-12"></a>  y6 =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">rnorm</span>(n62,mu62,sd62));</span>
+<span id="cb33-13"><a href="#cb33-13"></a>  z6 =<span class="st"> </span><span class="kw">rbind</span>(x6,y6)</span>
+<span id="cb33-14"><a href="#cb33-14"></a>  p.values62[i,<span class="dv">1</span>] =<span class="st"> </span><span class="kw">eqdist.nn6</span>(z6,N6,k6)<span class="op">$</span>p.value</span>
+<span id="cb33-15"><a href="#cb33-15"></a>  p.values62[i,<span class="dv">2</span>] =<span class="st"> </span><span class="kw">eqdist.etest</span>(z6,<span class="dt">sizes=</span>N6,<span class="dt">R=</span><span class="dv">999</span>)<span class="op">$</span>p.value</span>
+<span id="cb33-16"><a href="#cb33-16"></a>  p.values62[i,<span class="dv">3</span>] =<span class="st"> </span><span class="kw">bd.test</span>(<span class="dt">x=</span>x6,<span class="dt">y=</span>y6,<span class="dt">num.permutations=</span><span class="dv">999</span>,<span class="dt">seed=</span>i<span class="op">*</span><span class="dv">12345</span>)<span class="op">$</span>p.value</span>
+<span id="cb33-17"><a href="#cb33-17"></a>}</span>
+<span id="cb33-18"><a href="#cb33-18"></a>alpha61 =<span class="st"> </span><span class="fl">0.05</span>;</span>
+<span id="cb33-19"><a href="#cb33-19"></a>pow62 =<span class="st"> </span><span class="kw">colMeans</span>(p.values62<span class="op">&lt;</span>alpha61)</span>
+<span id="cb33-20"><a href="#cb33-20"></a><span class="kw">print</span>(pow62)</span></code></pre></div>
+<pre><code>## [1] 0.6833333 0.9900000 0.9833333</code></pre>
+<p>在这种情况下，可见energy法最佳，而且和bd法相差无几，效果都接近了0.99</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="co">##情况三</span></span>
+<span id="cb35-2"><a href="#cb35-2"></a>m6 =<span class="st"> </span><span class="dv">300</span><span class="co">##迭代次数</span></span>
+<span id="cb35-3"><a href="#cb35-3"></a>R6=<span class="dv">999</span><span class="co">##随机次数</span></span>
+<span id="cb35-4"><a href="#cb35-4"></a><span class="kw">set.seed</span>(<span class="dv">11113</span>)</span>
+<span id="cb35-5"><a href="#cb35-5"></a>n61 =<span class="st"> </span>n62 =<span class="st"> </span><span class="dv">50</span><span class="co">##样本数</span></span>
+<span id="cb35-6"><a href="#cb35-6"></a>n6 =<span class="st"> </span>n61<span class="op">+</span>n62; N6 =<span class="st"> </span><span class="kw">c</span>(n61,n62)</span>
+<span id="cb35-7"><a href="#cb35-7"></a>p.values63 &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="ot">NA</span>,m6,<span class="dv">3</span>)</span>
+<span id="cb35-8"><a href="#cb35-8"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>m6){</span>
+<span id="cb35-9"><a href="#cb35-9"></a>  <span class="co">##先考虑t分布</span></span>
+<span id="cb35-10"><a href="#cb35-10"></a>  x6 =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rt</span>(n61,<span class="dv">1</span>),<span class="dt">ncol=</span>p6);</span>
+<span id="cb35-11"><a href="#cb35-11"></a>  <span class="co">##将混合正态的均值也设成0</span></span>
+<span id="cb35-12"><a href="#cb35-12"></a>  y6 =<span class="st"> </span><span class="kw">cbind</span>(<span class="fl">0.3</span><span class="op">*</span><span class="kw">rnorm</span>(n62,<span class="dv">0</span>,<span class="dv">1</span>)<span class="op">+</span><span class="fl">0.7</span><span class="op">*</span><span class="kw">rnorm</span>(n62,<span class="dv">0</span>,<span class="dv">2</span>))</span>
+<span id="cb35-13"><a href="#cb35-13"></a>  z6 =<span class="st"> </span><span class="kw">rbind</span>(x6,y6)</span>
+<span id="cb35-14"><a href="#cb35-14"></a>  p.values63[i,<span class="dv">1</span>] =<span class="st"> </span><span class="kw">eqdist.nn6</span>(z6,N6,k6)<span class="op">$</span>p.value</span>
+<span id="cb35-15"><a href="#cb35-15"></a>  p.values63[i,<span class="dv">2</span>] =<span class="st"> </span><span class="kw">eqdist.etest</span>(z6,<span class="dt">sizes=</span>N6,<span class="dt">R=</span>R6)<span class="op">$</span>p.value</span>
+<span id="cb35-16"><a href="#cb35-16"></a>  p.values63[i,<span class="dv">3</span>] =<span class="st"> </span><span class="kw">bd.test</span>(<span class="dt">x=</span>x6,<span class="dt">y=</span>y6,<span class="dt">num.permutations=</span><span class="dv">999</span>,<span class="dt">seed=</span>i<span class="op">*</span><span class="dv">12345</span>)<span class="op">$</span>p.value</span>
+<span id="cb35-17"><a href="#cb35-17"></a>}</span>
+<span id="cb35-18"><a href="#cb35-18"></a>alpha61 =<span class="st"> </span><span class="fl">0.05</span>;</span>
+<span id="cb35-19"><a href="#cb35-19"></a>pow63 =<span class="st"> </span><span class="kw">colMeans</span>(p.values63<span class="op">&lt;</span>alpha61)</span>
+<span id="cb35-20"><a href="#cb35-20"></a><span class="kw">print</span>(pow63)</span></code></pre></div>
+<pre><code>## [1] 0.2766667 0.4133333 0.2566667</code></pre>
+<p>可以发现在分正态分布的情况下，反而是第二种energy的方法更好</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="co">##情况四</span></span>
+<span id="cb37-2"><a href="#cb37-2"></a>m6 =<span class="st"> </span><span class="dv">300</span><span class="co">##迭代次数</span></span>
+<span id="cb37-3"><a href="#cb37-3"></a>R6=<span class="dv">999</span><span class="co">##随机次数</span></span>
+<span id="cb37-4"><a href="#cb37-4"></a><span class="kw">set.seed</span>(<span class="dv">10002</span>)</span>
+<span id="cb37-5"><a href="#cb37-5"></a>n61=<span class="dv">50</span>;n62=<span class="dv">30</span><span class="co">##不同的样本数</span></span>
+<span id="cb37-6"><a href="#cb37-6"></a>n6 =<span class="st"> </span>n61<span class="op">+</span>n62; N6 =<span class="st"> </span><span class="kw">c</span>(n61,n62)</span>
+<span id="cb37-7"><a href="#cb37-7"></a><span class="co">##不同的方差和相同的均值</span></span>
+<span id="cb37-8"><a href="#cb37-8"></a>sd61 =<span class="dv">1</span>;sd62=<span class="dv">1</span>;mu61=<span class="dv">1</span>;mu62=<span class="dv">0</span></span>
+<span id="cb37-9"><a href="#cb37-9"></a>p.values64&lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="ot">NA</span>,m6,<span class="dv">3</span>)</span>
+<span id="cb37-10"><a href="#cb37-10"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>m6){</span>
+<span id="cb37-11"><a href="#cb37-11"></a>  x6 =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(n61,mu61,sd61),<span class="dt">ncol=</span>p6)</span>
+<span id="cb37-12"><a href="#cb37-12"></a>  y6 =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">rnorm</span>(n62,mu62,sd62));</span>
+<span id="cb37-13"><a href="#cb37-13"></a>  z6 =<span class="st"> </span><span class="kw">rbind</span>(x6,y6)</span>
+<span id="cb37-14"><a href="#cb37-14"></a>  p.values64[i,<span class="dv">1</span>] =<span class="st"> </span><span class="kw">eqdist.nn6</span>(z6,N6,k6)<span class="op">$</span>p.value</span>
+<span id="cb37-15"><a href="#cb37-15"></a>  p.values64[i,<span class="dv">2</span>] =<span class="st"> </span><span class="kw">eqdist.etest</span>(z6,<span class="dt">sizes=</span>N6,<span class="dt">R=</span>R6)<span class="op">$</span>p.value</span>
+<span id="cb37-16"><a href="#cb37-16"></a>  p.values64[i,<span class="dv">3</span>] =<span class="st"> </span><span class="kw">bd.test</span>(<span class="dt">x=</span>x6,<span class="dt">y=</span>y6,<span class="dt">num.permutations=</span><span class="dv">999</span>,<span class="dt">seed=</span>i<span class="op">*</span><span class="dv">12345</span>)<span class="op">$</span>p.value</span>
+<span id="cb37-17"><a href="#cb37-17"></a>}</span>
+<span id="cb37-18"><a href="#cb37-18"></a>alpha61 =<span class="st"> </span><span class="fl">0.05</span>;</span>
+<span id="cb37-19"><a href="#cb37-19"></a>pow64 =<span class="st"> </span><span class="kw">colMeans</span>(p.values64<span class="op">&lt;</span>alpha61)</span>
+<span id="cb37-20"><a href="#cb37-20"></a><span class="kw">print</span>(pow64)</span></code></pre></div>
+<pre><code>## [1] 0.6333333 0.9833333 0.9366667</code></pre>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="co">##不同的方差和相同的均值</span></span>
+<span id="cb39-2"><a href="#cb39-2"></a>sd61 =<span class="dv">1</span>;sd62=<span class="dv">2</span>;mu61=<span class="dv">0</span>;mu62=<span class="dv">0</span></span>
+<span id="cb39-3"><a href="#cb39-3"></a>p.values65&lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="ot">NA</span>,m6,<span class="dv">3</span>)</span>
+<span id="cb39-4"><a href="#cb39-4"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>m6){</span>
+<span id="cb39-5"><a href="#cb39-5"></a>  x6 =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(n61,mu61,sd61),<span class="dt">ncol=</span>p6)</span>
+<span id="cb39-6"><a href="#cb39-6"></a>  y6 =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">rnorm</span>(n62,mu62,sd62));</span>
+<span id="cb39-7"><a href="#cb39-7"></a>  z6 =<span class="st"> </span><span class="kw">rbind</span>(x6,y6)</span>
+<span id="cb39-8"><a href="#cb39-8"></a>  p.values65[i,<span class="dv">1</span>] =<span class="st"> </span><span class="kw">eqdist.nn6</span>(z6,N6,k6)<span class="op">$</span>p.value</span>
+<span id="cb39-9"><a href="#cb39-9"></a>  p.values65[i,<span class="dv">2</span>] =<span class="st"> </span><span class="kw">eqdist.etest</span>(z6,<span class="dt">sizes=</span>N6,<span class="dt">R=</span>R6)<span class="op">$</span>p.value</span>
+<span id="cb39-10"><a href="#cb39-10"></a>  p.values65[i,<span class="dv">3</span>] =<span class="st"> </span><span class="kw">bd.test</span>(<span class="dt">x=</span>x6,<span class="dt">y=</span>y6,<span class="dt">num.permutations=</span><span class="dv">999</span>,<span class="dt">seed=</span>i<span class="op">*</span><span class="dv">12345</span>)<span class="op">$</span>p.value</span>
+<span id="cb39-11"><a href="#cb39-11"></a>}</span>
+<span id="cb39-12"><a href="#cb39-12"></a>alpha61 =<span class="st"> </span><span class="fl">0.05</span>;</span>
+<span id="cb39-13"><a href="#cb39-13"></a>pow65 =<span class="st"> </span><span class="kw">colMeans</span>(p.values65<span class="op">&lt;</span>alpha61)</span>
+<span id="cb39-14"><a href="#cb39-14"></a><span class="kw">print</span>(pow65)</span></code></pre></div>
+<pre><code>## [1] 0.5433333 0.6666667 0.8066667</code></pre>
+<p>在不同的样本量的情况下，相同均值不同方差中，energy方法最好，基本和bd法一致的拒绝率，NN法最差。在不同均值相同方差的情况下，bd法最好，NN法最差。</p>
+<p>#hw9</p>
+</div>
+<div id="question1-4" class="section level2">
+<h2>Question1</h2>
+<p>Write an Rcpp function for Exercise 9.4</p>
+</div>
+<div id="answer-11" class="section level2">
+<h2>Answer</h2>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="kw">library</span>(Rcpp)</span></code></pre></div>
+<pre><code>## Warning: 程辑包&#39;Rcpp&#39;是用R版本4.0.3 来建造的</code></pre>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a><span class="co">##如下，random为生成正态随机数的cpp函数，chain为生成随机游走的函数</span></span>
+<span id="cb43-2"><a href="#cb43-2"></a><span class="kw">sourceCpp</span>(<span class="dt">code=</span><span class="st">&#39;</span></span>
+<span id="cb43-3"><a href="#cb43-3"></a><span class="st">#include &lt;Rcpp.h&gt;</span></span>
+<span id="cb43-4"><a href="#cb43-4"></a><span class="st">using namespace Rcpp;</span></span>
+<span id="cb43-5"><a href="#cb43-5"></a></span>
+<span id="cb43-6"><a href="#cb43-6"></a><span class="st">//[[Rcpp::export]]</span></span>
+<span id="cb43-7"><a href="#cb43-7"></a><span class="st">  NumericVector random(double sigma, int n) {</span></span>
+<span id="cb43-8"><a href="#cb43-8"></a><span class="st">      NumericVector runif(n);</span></span>
+<span id="cb43-9"><a href="#cb43-9"></a><span class="st">      for(int i = 0; i &lt; n; i++) {</span></span>
+<span id="cb43-10"><a href="#cb43-10"></a><span class="st">        double U, V,Z;</span></span>
+<span id="cb43-11"><a href="#cb43-11"></a><span class="st">        U = rand()/ (RAND_MAX + 1.0);</span></span>
+<span id="cb43-12"><a href="#cb43-12"></a><span class="st">        V = rand()/ (RAND_MAX + 1.0);</span></span>
+<span id="cb43-13"><a href="#cb43-13"></a><span class="st">        Z=sqrt(-2.0 * log(U))* sin(2.0 * 3.141592654 * V);</span></span>
+<span id="cb43-14"><a href="#cb43-14"></a><span class="st">        runif[i] = sigma*Z;</span></span>
+<span id="cb43-15"><a href="#cb43-15"></a><span class="st">        </span></span>
+<span id="cb43-16"><a href="#cb43-16"></a><span class="st">      }</span></span>
+<span id="cb43-17"><a href="#cb43-17"></a><span class="st">      return runif;</span></span>
+<span id="cb43-18"><a href="#cb43-18"></a><span class="st">  }</span></span>
+<span id="cb43-19"><a href="#cb43-19"></a><span class="st">  </span></span>
+<span id="cb43-20"><a href="#cb43-20"></a><span class="st">//[[Rcpp::export]]  </span></span>
+<span id="cb43-21"><a href="#cb43-21"></a><span class="st">    NumericVector chain(double sig, int n1){</span></span>
+<span id="cb43-22"><a href="#cb43-22"></a><span class="st">    NumericVector rw(n1+1),x1(n1);</span></span>
+<span id="cb43-23"><a href="#cb43-23"></a><span class="st">    rw[0]=exp(-1)/2;</span></span>
+<span id="cb43-24"><a href="#cb43-24"></a><span class="st">    x1=random(sig,n1);</span></span>
+<span id="cb43-25"><a href="#cb43-25"></a><span class="st">    int k1;</span></span>
+<span id="cb43-26"><a href="#cb43-26"></a><span class="st">    double y1;</span></span>
+<span id="cb43-27"><a href="#cb43-27"></a><span class="st">    k1=0;</span></span>
+<span id="cb43-28"><a href="#cb43-28"></a><span class="st">    for(int i = 1; i &lt; n1; i++) {</span></span>
+<span id="cb43-29"><a href="#cb43-29"></a><span class="st">      y1=random(sig,1)[0]+rw[i-1];</span></span>
+<span id="cb43-30"><a href="#cb43-30"></a><span class="st">        if (x1[i-1] &lt;= (exp(-abs(y1))/exp(-abs( rw[i-1] ))) )</span></span>
+<span id="cb43-31"><a href="#cb43-31"></a><span class="st">            {rw[i]=y1;} </span></span>
+<span id="cb43-32"><a href="#cb43-32"></a><span class="st">        else {</span></span>
+<span id="cb43-33"><a href="#cb43-33"></a><span class="st">            rw[i]=rw[i-1];</span></span>
+<span id="cb43-34"><a href="#cb43-34"></a><span class="st">            k1=k1 + 1;</span></span>
+<span id="cb43-35"><a href="#cb43-35"></a><span class="st">        }</span></span>
+<span id="cb43-36"><a href="#cb43-36"></a><span class="st">    }</span></span>
+<span id="cb43-37"><a href="#cb43-37"></a><span class="st">    rw[n1]=k1;</span></span>
+<span id="cb43-38"><a href="#cb43-38"></a><span class="st">    return(rw);</span></span>
+<span id="cb43-39"><a href="#cb43-39"></a><span class="st">  }</span></span>
+<span id="cb43-40"><a href="#cb43-40"></a><span class="st">&#39;</span>)</span>
+<span id="cb43-41"><a href="#cb43-41"></a><span class="co">##由于c语言画图的可视化比较复杂，采用R语言本身的画图来比较链的区别</span></span>
+<span id="cb43-42"><a href="#cb43-42"></a>N91=<span class="dv">1000</span></span>
+<span id="cb43-43"><a href="#cb43-43"></a>sigma91=<span class="kw">c</span>(<span class="fl">0.1</span>,<span class="fl">0.7</span>, <span class="dv">1</span>,<span class="dv">4</span>)</span>
+<span id="cb43-44"><a href="#cb43-44"></a>rw911=<span class="kw">chain</span>(sigma91[<span class="dv">1</span>], N91)</span>
+<span id="cb43-45"><a href="#cb43-45"></a>rw912=<span class="kw">chain</span>(sigma91[<span class="dv">2</span>], N91)</span>
+<span id="cb43-46"><a href="#cb43-46"></a>rw913=<span class="kw">chain</span>(sigma91[<span class="dv">3</span>], N91)</span>
+<span id="cb43-47"><a href="#cb43-47"></a>rw914=<span class="kw">chain</span>(sigma91[<span class="dv">4</span>], N91)</span>
+<span id="cb43-48"><a href="#cb43-48"></a><span class="co">##对比拒绝的比例并画图比较数据</span></span>
+<span id="cb43-49"><a href="#cb43-49"></a><span class="kw">c</span>(rw911[(N91<span class="op">+</span><span class="dv">1</span>)], rw912[(N91<span class="op">+</span><span class="dv">1</span>)], rw913[(N91<span class="op">+</span><span class="dv">1</span>)], rw914[(N91<span class="op">+</span><span class="dv">1</span>)])<span class="op">/</span>N91</span></code></pre></div>
+<pre><code>## [1] 0.000 0.139 0.179 0.339</code></pre>
+<p>由生成的图象可见，随着sigma变大，马氏链趋于稳定的速度越快。拒绝率也是随着方差变大而变大。</p>
+</div>
+<div id="question2-4" class="section level2">
+<h2>Question2</h2>
+<p>Compare the corresponding generated random numbers with those by the R function you wrote before using the function “qqplot”.</p>
+</div>
+<div id="answer-12" class="section level2">
+<h2>Answer</h2>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a><span class="kw">library</span>(Rcpp)</span>
+<span id="cb45-2"><a href="#cb45-2"></a><span class="kw">qqplot</span>(<span class="kw">random</span>(<span class="dv">1</span>,<span class="dv">100</span>),<span class="kw">rnorm</span>(<span class="dv">100</span>,<span class="dv">0</span>,<span class="dv">1</span>))</span></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a><span class="kw">qqplot</span>(<span class="kw">random</span>(<span class="dv">1</span>,<span class="dv">1000</span>),<span class="kw">rnorm</span>(<span class="dv">1000</span>,<span class="dv">0</span>,<span class="dv">1</span>))</span></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a><span class="kw">qqplot</span>(<span class="kw">random</span>(<span class="dv">1</span>,<span class="dv">10000</span>),<span class="kw">rnorm</span>(<span class="dv">10000</span>,<span class="dv">0</span>,<span class="dv">1</span>))</span></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+<p>可见随着样本数量增大，图象趋于直线，即两个样本的分布几乎相同。</p>
+</div>
+<div id="question3-3" class="section level2">
+<h2>Question3</h2>
+<p>Campare the computation time of the two functions with the function “microbenchmark”.</p>
+</div>
+<div id="answer-13" class="section level2">
+<h2>Answer</h2>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a><span class="kw">library</span>(microbenchmark)</span></code></pre></div>
+<pre><code>## Warning: 程辑包&#39;microbenchmark&#39;是用R版本4.0.3 来建造的</code></pre>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a>x93=<span class="dv">1000</span></span>
+<span id="cb50-2"><a href="#cb50-2"></a>a93=<span class="kw">microbenchmark</span>(<span class="dt">rnorm=</span><span class="kw">runif</span>(x93,<span class="dv">0</span>,<span class="dv">2</span>),<span class="dt">randomcpp=</span><span class="kw">random</span>(<span class="dv">2</span>,x93))</span>
+<span id="cb50-3"><a href="#cb50-3"></a><span class="kw">print</span>(<span class="kw">summary</span>(a93)[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">6</span>)])</span></code></pre></div>
+<pre><code>##        expr   lq median     uq
+## 1     rnorm 29.4  30.20  31.35
+## 2 randomcpp 95.3  97.75 116.90</code></pre>
+<p>由结果可知，可以发现编写的C程序花费了更运算时间，所以还需要进一步优化。</p>
+</div>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

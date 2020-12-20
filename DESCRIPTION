@@ -1,0 +1,16 @@
+Package: StatComp20013
+Type: Package
+Title: homework functions for 'Statistical Computing' course
+Version: 1.0
+Date: 2020-12-13
+Author: Zhi ya Chen
+Maintainer: Zhi ya Chen <chenzy16@mail.ustc.edu.cn>
+Description: Several R and Rcpp function are included in this package for illustration. 
+License: GPL (>= 2)
+Imports: Rcpp (>= 0.12.16), microbenchmark, knitr, rmarkdown,mvtnorm,Ball,energy,boot,RANN
+LinkingTo: Rcpp
+RoxygenNote: 7.1.1
+Encoding: UTF-8
+VignetteBuilder: knitr
+URL: https://github.com/jeffczy1234/StatComp20013
+BugReports: https://github.com/jeffczy1234/StatComp20013/issues
